@@ -1,0 +1,96 @@
+footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer-container{
+    background-color: #f7f8fa;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.footer-head{
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-item{
+    display: flex;
+    flex-direction: column;
+}
+.title-item{
+    font-size: 16px;
+    margin: 10px 0px;
+}
+.item-list{
+    list-style: none;
+}
+.item{
+    text-decoration: none;
+}
+.footer-contact{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.footer-social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social-media{
+    display: flex;
+    flex-direction: column;
+}
+.title-social{
+    font-size: 16px;
+    margin: 10px 0px;
+}
+.social-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.social-item{
+    text-decoration: none;
+    margin: 0px 10px;
+}
+.social-item i{
+    font-size: 24px;
+    color: #000;
+}
+.email-space input{
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #e4dede;
+}
+.email-space button{
+    background-color: #000;
+    color: #fff;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #e4dede;
+}
+.footer-payment{
+    margin: 20px auto;
+}
+.payment-list{
+    text-decoration:none;
+}
+.payment-item{
+    display: inline-block;
+    margin: 5px 10px;
+}
+.payment-item i{
+    font-size: 20px;
+    color: gray;
+}

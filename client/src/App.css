@@ -1,0 +1,19 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+}
+.product-page-component {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.cart-shop {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

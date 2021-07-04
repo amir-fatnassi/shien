@@ -1,0 +1,86 @@
+.login-container {
+    margin: 0;
+    padding: 10px;
+    font-family: sans-serif;
+    background-image: url('./background2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.login-form {
+    border-radius: 10px;
+    margin: 30px auto 10px;
+    padding: 20px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    width: 400px;
+    background: #c5c9ca;
+    opacity: 0.9
+}
+.error {
+    color: red;
+}
+
+.login-form h5 {
+    margin-top: 10px;
+    color: #2A8DD6;
+    cursor: pointer;
+}
+
+.login-form h1 {
+    color: #1c8adb;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+
+.sign {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-box-sign {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 48%;
+    border: 1px solid #999;
+    outline: none;
+}
+
+.input-button {
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    font-size: 15px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    background-color: #1c8adb;
+}
+
+hr {
+    margin-top: 20px;
+}
+
+.OR {
+    background: #c5c9ca;
+    width: 30px;
+    margin: -10px auto 10px;
+}
+
+.log-icon {
+    width: 70px;
+    margin-top: -50px;
+}

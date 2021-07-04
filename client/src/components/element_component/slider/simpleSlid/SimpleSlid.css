@@ -1,0 +1,13 @@
+.simple-slid-container {
+    width: 90%;
+    height: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f7f8fa;
+}
+.simple-slid-img {
+    width: 100%;
+    height: 450px;
+    display: block;
+    object-position: top;
+}

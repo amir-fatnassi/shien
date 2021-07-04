@@ -1,0 +1,29 @@
+.prix-total-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    max-height: 400px;
+    margin: 20px;
+    padding: 20px 10px;
+    background: #F7F8FA;
+}
+
+.prix-total-component h2 {
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.tot {
+    color: green;
+}
+
+.toutal-ch {
+    width: 80%;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

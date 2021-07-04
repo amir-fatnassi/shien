@@ -1,0 +1,11 @@
+.search-body-container {
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    height: 100%;
+    /* background-color: #e9f5f9; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
