@@ -6,7 +6,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const globalErrorHandler = require('./controllers/errorController')
-const hotelRouter = require('./routes/hotelRoutes');
+const productRouter = require('./routes/productRoutes');
 const userRouter = require('./routes/userRoutes');
 
 console.log(process.env.NODE_ENV )
@@ -24,6 +24,7 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.use(express.json({ limit: '10kb' }));
+// app.use('/uploads', express.static('uploads'));
 app.use(cookieParser());
 
 // app.use((req, res, next) => {
@@ -33,7 +34,7 @@ app.use(cookieParser());
 
 app.use(mongoSanitize());
 
-app.use('/api/v1/hotels', hotelRouter);
+app.use('/api/v1/products', productRouter);
 app.use('/api/v1/users', userRouter);  
 
 app.use(cors())
