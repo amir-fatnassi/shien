@@ -18,9 +18,9 @@ const SideBar = () => {
                 <h3 className="categori-title">Catégorie</h3>
                 <ul className="categorie-list">
                     {data.map((el) => {
-                        return <li key={el.id} className='categorie-item' >
-                            <i className={el.categorieIcon} onClick={()=>onSearch(el.id)} style={{color:`${el.seartch ?"green":""}`}}  ></i>
-                            <h5 className='tit' >{el.categorieName} </h5>
+                        return <li key={el.id} className='categorie-item' onClick={()=>onSearch(el.id)} style={{color:`${el.seartch ?"green":""}`}} >
+                            <i className={el.categorieIcon} ></i>
+                            <h5 className='tit'  >{el.categorieName}  </h5>
                         </li>
                     })}
                 </ul>

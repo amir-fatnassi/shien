@@ -72,6 +72,7 @@ exports.Protect = CatchAsync(async(req, res, next) => {
     }else if(req.cookies.jwt){
         token = req.cookies.jwt
     }
+    
 
     if(!token) {
         return next(new AppError('You are not logged in! Please log in to get access.', 401))
@@ -180,3 +181,12 @@ exports.UpdateCurentUser = CatchAsync(async(req, res, next) => {
     CreateSendToken(user, 200, res)
 
 })
+
+exports.logout = (req, res) => {
+    res.cookie('jwt', 'logout', {
+        expires: new Date(Date.now() + 5000),
+        httpOnly: true
+    });
+
+    res.status(200).json({status: 'success'})
+}

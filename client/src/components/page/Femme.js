@@ -8,13 +8,8 @@ import wo6 from '../image/wo6.jpg'
 import wo5 from '../image/wo5.jpg'
 import wo2 from '../image/wo2.jpg'
 
-import {useSelector} from 'react-redux'
 
 const Femme = () => {
-    
-    const Users = useSelector((state) => state.User)
-    console.log(Users)
-
     const categories = [
         {
             categ: 'Bobe',
@@ -41,7 +36,7 @@ const Femme = () => {
     return (
         <>
             <HeroSection 
-                image={women1}
+                image='http://localhost:5000/api/v1/uploads/1625447278000--laura-chouette-KjHCeJgnps8-unsplash.jpg'
                 mTitle='Shop jewellery handmade in Sydney' 
                 title='vaconcy mode'
                 position='left'

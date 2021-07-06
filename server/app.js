@@ -24,7 +24,8 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.use(express.json({ limit: '10kb' }));
-// app.use('/uploads', express.static('uploads'));
+app.use('/public', express.static('public'));
+// app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 // app.use((req, res, next) => {

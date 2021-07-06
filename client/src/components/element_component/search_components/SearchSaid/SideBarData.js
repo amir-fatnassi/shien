@@ -1,7 +1,7 @@
 export const SideBarDataMen = [
     {
         id:1,
-        categorieName: 'Robes',
+        categorieName: 'Robes',  
         categorieIcon: "fas fa-check-circle",
         seartch:false 
     },

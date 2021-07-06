@@ -1,59 +1,75 @@
-import * as userauthtype from './UserAuthList-type';
+import * as userauthtype from "./UserAuthList-type";
 
-import * as api from '../../api/index';
+import * as api from "../../api/index";
 
-export const Signin = (user, history) => async(dispatch) => {
-    try {
-        dispatch({type: userauthtype.USER_LOADING})
+export const Signin = (user, history) => async (dispatch) => {
+  try {
+    dispatch({ type: userauthtype.USER_LOADING });
 
-        const currentUser = await api.getUser(user)
+    const currentUser = await api.getUser(user);
 
-        console.log(currentUser.data.data)
-        console.log(currentUser.data.token)
+    console.log(currentUser.data.data);
+    console.log(currentUser.data.token);
 
-        dispatch({
-            type: userauthtype.USER_LOADED, 
-            payload:{
-                user: currentUser.data.data.user ,
-                token:  currentUser.data.token
-            }
-        });
-        history.push('/')
-    } catch (error) {
-        dispatch({type:userauthtype.AUTH_ERROR})
-        console.log(error)
-        dispatch({
-            type: userauthtype.GET_ERRORS,
-            payload: error.response.data.message
-        })
-        setTimeout(() => { dispatch({type: userauthtype.CLEAR_ERRORS})}, 5000)
-    }
-}
+    dispatch({
+      type: userauthtype.USER_LOADED,
+      payload: {
+        user: currentUser.data.data.user,
+        token: currentUser.data.token,
+      },
+    });
+    history.push("/");
+  } catch (error) {
+    dispatch({ type: userauthtype.AUTH_ERROR });
+    console.log(error);
+    dispatch({
+      type: userauthtype.GET_ERRORS,
+      payload: error.response.data.message,
+    });
+    setTimeout(() => {
+      dispatch({ type: userauthtype.CLEAR_ERRORS });
+    }, 5000);
+  }
+};
 
-export const Signup = (user, history) => async(dispatch) => {
-    try {
-        dispatch({type: userauthtype.USER_LOADING})
+export const loggOut = (history) => async (dispatch) => {
+  try {
+    await api.logOut();
+    dispatch({
+      type: userauthtype.LOGOUT_SUCCESS,
+    });
+    history.push("/login");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-        const newUser = await api.createUser(user)
+export const Signup = (user, history) => async (dispatch) => {
+  try {
+    dispatch({ type: userauthtype.USER_LOADING });
 
-        console.log(newUser.data.data)
-        console.log(newUser.data.token)
+    const newUser = await api.createUser(user);
 
-        dispatch({
-            type: userauthtype.REGISTER_SUCCESS, 
-            payload:{
-                user: newUser.data.data.user ,
-                token:  newUser.data.token
-            }
-        });
-        history.push('/')
-    } catch (error) {
-        dispatch({type:userauthtype.REGISTER_FAIL})
-        console.log(error)
-        dispatch({
-            type: userauthtype.GET_ERRORS,
-            payload: error.response.data.message
-        })
-        setTimeout(() => { dispatch({type: userauthtype.CLEAR_ERRORS})}, 5000)
-    }
-}
+    console.log(newUser.data.data);
+    console.log(newUser.data.token);
+
+    dispatch({
+      type: userauthtype.REGISTER_SUCCESS,
+      payload: {
+        user: newUser.data.data.user,
+        token: newUser.data.token,
+      },
+    });
+    history.push("/");
+  } catch (error) {
+    dispatch({ type: userauthtype.REGISTER_FAIL });
+    console.log(error);
+    dispatch({
+      type: userauthtype.GET_ERRORS,
+      payload: error.response.data.message,
+    });
+    setTimeout(() => {
+      dispatch({ type: userauthtype.CLEAR_ERRORS });
+    }, 5000);
+  }
+};

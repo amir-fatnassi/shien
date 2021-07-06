@@ -1,4 +1,20 @@
 import * as actionType from './shopping-type';
+import * as api from '../../api/index';
+
+
+export const getProducts = () => async(dispatch) => {
+    try {
+        const {data} = await api.getProduct();
+        console.log(data.data.products)
+        dispatch({
+            type: actionType.GET_PRODUCTS,
+            payload: data.data.products
+        })
+
+    } catch (error) {
+        console.log(error.error)
+    }
+}
 
 export const addToCart = (itemID) => {
     return {

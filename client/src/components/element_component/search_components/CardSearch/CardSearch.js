@@ -1,14 +1,18 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './CardSearch.css';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../../redux/shopping/shopping-action'
 
-const CardSearch = ({product, addToCart}) => {
+const CardSearch = ({product}) => {
+
+    const dispatch = useDispatch()
+
     return (
         <div className='card-search-container'>
             <div className="card-search-image">
-                <img src={product.image} alt="" />
+                {/* <img src={product.image} alt="" /> */}
+                <img src={`http://localhost:5000/${product.imageProduct}`} alt="" />
             </div>
             <div className="card-search-body">
                 <h5 className="card-search-descreption">{product.description}</h5>
@@ -21,15 +25,11 @@ const CardSearch = ({product, addToCart}) => {
                 </h6>
                 {/* <div className="color"></div> */}
             </div>
-            <button className='btn add' onClick={()=> addToCart(product.id)} >add</button>
+            <button className='btn add' onClick={()=> dispatch(addToCart(product._id))} >add</button>
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (id) => dispatch(addToCart(id))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(CardSearch)
+
+export default CardSearch

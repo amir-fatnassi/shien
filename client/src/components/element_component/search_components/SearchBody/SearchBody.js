@@ -1,12 +1,23 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './SearchBody.css'
 import CardSearch from '../CardSearch/CardSearch'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {getProducts} from '../../../../redux/shopping/shopping-action'
 
-const SearchBody = ({products}) => {
+const SearchBody = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        dispatch(getProducts())
+    },[])
+
+    const {products} = useSelector((state) => state.shop)
+    console.log(products)
+
     return (
         <div className='search-body-container'>
-            {products.map((product) => {
+            {products.length > 0 && products.map((product) => {
                 return(
                 <CardSearch key={product.id} product={product} />
             )})}
@@ -14,10 +25,4 @@ const SearchBody = ({products}) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        products: state.shop.products
-    }
-}
-
-export default connect(mapStateToProps)(SearchBody)
+export default SearchBody
