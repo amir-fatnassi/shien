@@ -13,6 +13,15 @@ const shopReducer = (state = initialState, action) => {
                 ...state,
                 products: action.payload
             }
+        case actionType.DELET_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter((el) => el._id !== action.payload )
+            }
+        case actionType.ADD_NEW_PRODUCT:
+            return{
+                ...state
+            }
         case actionType.ADD_TO_CART:
             const item = state.products.find((product) => product._id === action.payload.id);
             const inCart = state.cart.find((item) => item._id === action.payload.id ? true :false);

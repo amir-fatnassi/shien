@@ -16,10 +16,10 @@ const productSchema = mongoose.Schema({
     },
     imageProduct:{
         type: String,
-        required: [true, 'please add the image product']
+        // required: [true, 'please add the image product']
     },
     image: [String],
-    color: [String]
+    color: String
 
 
     // rating: {

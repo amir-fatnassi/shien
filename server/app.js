@@ -29,13 +29,13 @@ app.use('/public', express.static('public'));
 app.use(cookieParser());
 
 // app.use((req, res, next) => {
-//     console.log(req.cookies.jwt);    
+//     console.log(req.cookies.jwt);       
 //     next()
 // })
 
 app.use(mongoSanitize());
 
-app.use('/api/v1/products', productRouter);
+app.use('/api/v1/products', productRouter); 
 app.use('/api/v1/users', userRouter);  
 
 app.use(cors())

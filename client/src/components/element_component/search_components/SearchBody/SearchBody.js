@@ -13,11 +13,10 @@ const SearchBody = () => {
     },[])
 
     const {products} = useSelector((state) => state.shop)
-    console.log(products)
 
     return (
         <div className='search-body-container'>
-            {products.length > 0 && products.map((product) => {
+            {(products.length > 0) && products.map((product) => {
                 return(
                 <CardSearch key={product.id} product={product} />
             )})}

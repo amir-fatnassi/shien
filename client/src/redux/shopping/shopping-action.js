@@ -5,14 +5,46 @@ import * as api from '../../api/index';
 export const getProducts = () => async(dispatch) => {
     try {
         const {data} = await api.getProduct();
-        console.log(data.data.products)
         dispatch({
             type: actionType.GET_PRODUCTS,
             payload: data.data.products
         })
 
     } catch (error) {
-        console.log(error.error)
+        console.log(error.response)
+    }
+}
+
+// export const UpdateProduct = (id, data) => async(dispatch) => {
+//     try {
+//         await api.updProduct(id, data)
+//         dispatch(getProducts())
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+export const AddProduct = ( product, history) => async(dispatch) =>{ 
+    try {
+        await api.addProduct(product)
+        dispatch({
+            type: actionType.ADD_NEW_PRODUCT
+        })
+        history.push('/search')
+    } catch (error) {
+        console.log(error.response)
+    }
+}
+
+export const DeleteProduct = (id) => async(dispatch) => {
+    try {
+        await api.deleteProduct(id)
+        dispatch({
+            type:actionType.DELET_PRODUCT,
+            payload:id
+        })
+    } catch (error) {
+        console.log(error.response)
     }
 }
 

@@ -9,6 +9,7 @@ import Search from './components/page/Search';
 import Product from './components/page/Product';
 import CartShop from './components/page/CartShop';
 import Login from './components/page/Login';
+import Admin from './components/page/admin';
 
 const App = () => {
   
@@ -22,6 +23,8 @@ const App = () => {
         <Route exact path='/product' component={Product} />
         <Route exact path='/cart' component={CartShop} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/admin' component={Admin} />
+        <Route exact path='*' component={Femme} />
       </Switch>
       <Footer/>
     </Router>

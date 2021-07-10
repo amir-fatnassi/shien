@@ -36,7 +36,7 @@ const Femme = () => {
     return (
         <>
             <HeroSection 
-                image='http://localhost:5000/api/v1/uploads/1625447278000--laura-chouette-KjHCeJgnps8-unsplash.jpg'
+                image={women1}
                 mTitle='Shop jewellery handmade in Sydney' 
                 title='vaconcy mode'
                 position='left'
