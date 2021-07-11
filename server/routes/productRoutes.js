@@ -11,6 +11,6 @@ router
 router
     .route('/:id')
     .get(productController.getProduct)
-    .patch(productController.updatProduct)
+    .patch(productController.test, productController.updatProduct)
     .delete(productController.deleteProduct)  
 module.exports = router; 

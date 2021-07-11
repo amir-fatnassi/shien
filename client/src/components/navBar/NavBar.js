@@ -7,11 +7,6 @@ import { loggOut } from "../../redux/userAuthontication/UserAuthList-action";
 
 const NavBar = () => {
 
-
-  const isAdmin = true
-
-
-
   const [cartCount, setCartCount] = useState(0);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profil")));
 
@@ -63,11 +58,11 @@ const NavBar = () => {
       </ul>
       <div className="logo">SHEN</div>
       <ul className="nav-menu nav-icon">
-        {user ? (
+        {curentUse.user ? (
           <div className="user-place">
             <img src={user && (user?.user.imageUrl || imag)} alt="" />
             <p>{user?.user.familyName || user?.user.name}</p>
-            {isAdmin && <h5>
+            {(curentUse.user.role ==="admin") && <h5>
               <Link className="nav-link" to="/admin" >
                 Admin
               </Link>

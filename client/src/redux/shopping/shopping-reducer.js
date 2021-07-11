@@ -19,6 +19,7 @@ const shopReducer = (state = initialState, action) => {
                 products: state.products.filter((el) => el._id !== action.payload )
             }
         case actionType.ADD_NEW_PRODUCT:
+        case actionType.UPDATE_PRODUCT:
             return{
                 ...state
             }

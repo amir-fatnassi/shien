@@ -2,7 +2,7 @@
     margin: 0;
     padding: 10px;
     font-family: sans-serif;
-    background-image: url('./background2.jpg');
+    background-image: url('../image/man2.jpg');
     background-position: center;
     background-size: cover;
 }

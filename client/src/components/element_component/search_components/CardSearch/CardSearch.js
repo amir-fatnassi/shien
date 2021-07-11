@@ -1,12 +1,12 @@
 import React from "react";
-import { Link , useHistory} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./CardSearch.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, DeleteProduct } from "../../../../redux/shopping/shopping-action";
 
 const CardSearch = ({ product }) => {
   const isAdmin = true;
-  const history = useHistory()
+  const {user }= useSelector((state) => state.User)
 
   const dispatch = useDispatch();
 
@@ -25,10 +25,16 @@ const CardSearch = ({ product }) => {
           <Link to="/product">View More</Link>
         </h6>
       </div>
-      {isAdmin ? (
+      {(user?.role === "admin") ? (
         <div className="">
-          <button className="btn add" onClick={() => {}}>
-            Update
+          <button className="btn add" >
+            <Link
+                to={{
+                    pathname: "/admin",
+                    Prod: product
+                }}>
+                Update
+            </Link>
           </button>
           <button className="btn add2" onClick={() => dispatch(DeleteProduct(product._id))}>
             Remove

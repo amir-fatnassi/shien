@@ -35,7 +35,6 @@ exports.createProduct = CatchAsync(async (req, res, next) => {
     ...req.body,
     imageProduct: pth,
   });
-  console.log(newProduct , req.file)
 
   res.status(200).json({ 
     status: "success",
@@ -71,9 +70,9 @@ exports.getProduct = CatchAsync(async (req, res, next) => {
 exports.updatProduct = CatchAsync(async (req, res, next) => {
   const data = {
     ...req.body,
-    imageProduct:req.file.path.split("\\").join("/")
+    imageProduct: req.file.path ? req.file.path.split("\\").join("/"): req.body.imageProduct
   }
-  const product = await Product.findByIdAndUpdate(req.body.id, data, {
+  const product = await Product.findByIdAndUpdate(req.body._id, data, {
     new: true,
     runValidators: true,
   });
@@ -81,8 +80,8 @@ exports.updatProduct = CatchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      product,
-    },
+      product
+    }
   });
 });
 

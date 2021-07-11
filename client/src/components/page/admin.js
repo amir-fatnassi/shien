@@ -1,86 +1,113 @@
 import React, { useState } from "react";
-import './admin.css'
+import "./admin.css";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { AddProduct } from "../../redux/shopping/shopping-action";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  AddProduct,
+  UpdateProduct,
+} from "../../redux/shopping/shopping-action";
 
-const Admin = () => {
-
-  const dispatch = useDispatch()
-
-  const [name, setName] = useState('')
-  const [taill, setTaill] = useState('')
-  const [price, setPrice] = useState(0)
-  const [color, setColor] = useState('')
-  const [photo, setPhoto] = useState()
+const Admin = ({ location }) => {
+  
+  const {user }= useSelector((state) => state.User)
+  const { Prod } = location;
+  const dispatch = useDispatch();
   const history = useHistory();
-  const isAdmin = true;
+
+  const [name, setName] = useState(`${Prod ? Prod.name : ""}`);
+  const [taill, setTaill] = useState(`${Prod ? Prod.taill : ""}`);
+  const [price, setPrice] = useState(`${Prod ? Prod.name : 0}`);
+  const [color, setColor] = useState(`${Prod ? Prod.color : ""}`);
+  const [photo, setPhoto] = useState();
 
   const handleSubmit = (e) => {
-      e.preventDefault()
+    e.preventDefault();
+    const product = new FormData();
+    product.append("name", name);
+    product.append("price", price);
+    product.append("taill", taill);
+    product.append("color", color);
+    product.append("photo", photo);
+    {Prod && product.append("_id", Prod._id)}
 
-      const product = new FormData();
-      product.append('name', name)
-      product.append('price', price)
-      product.append('taill', taill)
-      product.append('color', color)
-      product.append('photo', photo)
-      
-      dispatch(AddProduct(product, history)) 
+    {
+      Prod
+        ? dispatch(UpdateProduct(Prod._id, product, history))
+        : dispatch(AddProduct(product, history));
+    }
   };
 
   return (
     <div className="admin-container">
-      {isAdmin ? (
-          <form action="" onSubmit={handleSubmit} className="admin-form"  encType="multipart/form-data">
-            <div className='admin-chon'>
+      {(user?.role ==="admin") ? (
+        <form
+          action=""
+          onSubmit={handleSubmit}
+          className="admin-form"
+          encType="multipart/form-data"
+        >
+          <div className="admin-chon">
             <label htmlFor="name"> Product Name </label>
             <input
               type="text"
               name="name"
-              onChange={(e)=> setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               className="input-box-sign"
-              placeholder="Name"
+              placeholder={Prod ? Prod.name : "Name"}
             />
           </div>
-          <div className='admin-chon'>
+          <div className="admin-chon">
             <label htmlFor="name"> Price </label>
             <input
               type="number"
               name="price"
-              onChange={(e)=> setPrice(e.target.value)}
+              onChange={(e) => setPrice(e.target.value)}
               className="input-box-sign"
-              placeholder="Last Name"
+              placeholder={Prod ? Prod.price : "Price"}
             />
           </div>
-          <div className='admin-chon'>
+          <div className="admin-chon">
             <label htmlFor="name"> Taill </label>
             <input
               type="text"
               name="taill"
-              onChange={(e)=> setTaill(e.target.value)}
+              onChange={(e) => setTaill(e.target.value)}
               className="input-box-sign"
-              placeholder="Taill"
+              placeholder={Prod ? Prod.taill : "Taill"}
             />
           </div>
-          <div className='admin-chon'>
+          <div className="admin-chon">
             <label htmlFor="name"> Color </label>
             <input
               type="text"
               name="color"
-              onChange={(e)=> setColor(e.target.value)}
+              onChange={(e) => setColor(e.target.value)}
               className="input-box-sign"
-              placeholder="color"
+              placeholder={Prod ? Prod.color : "Color"}
             />
           </div>
-          <div className='admin-chon'>
-              <label htmlFor="image"> Product image </label>
-              <input type="file" name="photo" className="input-box-sign" onChange={(e) => setPhoto(e.target.files[0])} />
+          <div className="admin-chon">
+            <label htmlFor="image"> Product image </label>
+            <input
+              type="file"
+              name="photo"
+              className="input-box-sign"
+              onChange={(e) => setPhoto(e.target.files[0])}
+            />
           </div>
-          
-          <input type="submit" value="Add Product"  className="input-box-sign" />
-          
-          
+          {Prod ? (
+            <input
+              type="submit"
+              value="Update Product"
+              className="input-box-sign"
+            />
+          ) : (
+            <input
+              type="submit"
+              value="Add Product"
+              className="input-box-sign"
+            />
+          )}
         </form>
       ) : (
         history.push("/")

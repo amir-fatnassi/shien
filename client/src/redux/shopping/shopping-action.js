@@ -15,14 +15,17 @@ export const getProducts = () => async(dispatch) => {
     }
 }
 
-// export const UpdateProduct = (id, data) => async(dispatch) => {
-//     try {
-//         await api.updProduct(id, data)
-//         dispatch(getProducts())
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+export const UpdateProduct = (id, data, history) => async(dispatch) => {
+    try {
+        await api.updProduct(id, data)
+        dispatch({
+            type: actionType.UPDATE_PRODUCT
+        })
+        history.push('/search')
+    } catch (error) {
+        console.log(error.response)
+    }
+}
 
 export const AddProduct = ( product, history) => async(dispatch) =>{ 
     try {
