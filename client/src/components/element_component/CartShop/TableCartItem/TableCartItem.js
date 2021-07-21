@@ -7,7 +7,7 @@ function TableCartItem({ cart }) {
 
     const dispatch = useDispatch()
 
-    const [totpric, setTotpric] = useState(cart.totqty)
+    const [totpric, setTotpric] = useState(cart.totqty)   
 
     useEffect(() => {
         setTotpric(cart.price * cart.qty);
@@ -17,7 +17,7 @@ function TableCartItem({ cart }) {
             <td id='art'>
                 <div className="article">
                     <div className='image-cart-table'>  
-                        <img  src={`http://localhost:5000/${cart.imageProduct}`} alt=""  />
+                        <img  src={`http://localhost:5000/public/data/uploads/${cart.imageProduct}`} alt=""  />
                     </div>
                     <div className="cart-table-detail">
                         <h5>{cart.name}</h5>

@@ -3,12 +3,11 @@
   flex-direction: row;
 }
 .product-page-component {
-  width: 80%;
+  width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100vh;
 }
 
 .cart-shop {

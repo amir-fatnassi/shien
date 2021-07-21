@@ -25,6 +25,11 @@ const UserAuthReducer = (state = inatialState, action) => {
         user: action.payload.user,
         token: action.payload.token,
       };
+    case userauthtype.UPDATE_PHOTO:
+      return{
+        ...state,
+        user: action.payload
+      }
     case userauthtype.AUTH_ERROR:
     case userauthtype.LOGIN_FAIL:
     case userauthtype.LOGOUT_SUCCESS:

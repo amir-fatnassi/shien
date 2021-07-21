@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import userIcon from './user.png'
-import ma3 from '../image/ma3.jpg'
 import {useDispatch, useSelector} from 'react-redux'
 import GoogleLogin from 'react-google-login'
 import {Signin, Signup} from '../../redux/userAuthontication/UserAuthList-action'
@@ -68,7 +67,7 @@ const Login = () => {
                             type="text" 
                             name='lastName'
                             onChange={handleChange}
-                            className='input-box-sign'
+                            className='input-box-sign' 
                             placeholder='Last Name'
                         />
                     </div>

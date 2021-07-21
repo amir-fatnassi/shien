@@ -4,8 +4,11 @@ export const ADJUST_QTY = 'ADJUST_QTY';
 export const INCREMENT = 'INCREMENT';
 export const DICREMENT = 'DICREMENT';
 export const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM';
+export const CLEAR_CARTS = 'CLEAR_CARTS'
 
+export const GET_PRODUCTSHF = "GET_PRODUCTSHF"
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const ADD_NEW_PRODUCT = 'ADD_NEW_PRODUCT';
 export const DELET_PRODUCT = 'DELET_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const CLEAR_PRODUCT = 'CLEAR_PRODUCT';

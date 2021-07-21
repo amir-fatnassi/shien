@@ -26,8 +26,6 @@ const NavBar = () => {
     cart.forEach((item) => {
       count += item.qty;
     });
-    console.log(curentUse);
-
     setCartCount(count);
     setUser(JSON.parse(localStorage.getItem("profil")));
   }, [cart, cartCount, location, curentUse]);
@@ -36,7 +34,12 @@ const NavBar = () => {
     <div className="nav-bar">
       <ul className="nav-menu">
         <li>
-          <Link className="nav-link acvtive" to="/">
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-link acvtive" to="/femme">
             FEMME
           </Link>
         </li>
@@ -45,22 +48,14 @@ const NavBar = () => {
             HOMME
           </Link>
         </li>
-        <li>
-          <Link className="nav-link" to="/search">
-            Enfants
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/product">
-            Beaute
-          </Link>
-        </li>
       </ul>
       <div className="logo">SHEN</div>
       <ul className="nav-menu nav-icon">
         {curentUse.user ? (
           <div className="user-place">
-            <img src={user && (user?.user.imageUrl || imag)} alt="" />
+            <Link className="nav-link" to="/me">
+              <img src={user && (user?.user.imageUrl || imag)} alt="" />
+            </Link>
             <p>{user?.user.familyName || user?.user.name}</p>
             {(curentUse.user.role ==="admin") && <h5>
               <Link className="nav-link" to="/admin" >
@@ -83,9 +78,6 @@ const NavBar = () => {
         </li>
         <li>
           <i className="fas fa-headset"></i>
-        </li>
-        <li>
-          <i className="fas fa-globe"></i>
         </li>
         {user && (
           <li>

@@ -1,0 +1,18 @@
+.payment-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.payment-details {
+    display: block;
+    width: 100%;
+}
+.payment-details h3 {
+    text-align: center;
+}
+.payment-cart {
+    width: 100%;
+}

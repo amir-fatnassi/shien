@@ -24,7 +24,7 @@
 }
 
 .btn--outline2 {
-    background-color: green;
+    background-color: #00E59E;
     color: #fff;
     padding: 8px 40px;
     border: 1px solid var(--primary);

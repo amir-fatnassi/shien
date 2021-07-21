@@ -2,11 +2,15 @@ import HeroSection from '../../components/element_component/HeroSection/HeroSect
 import SimpleSlid from '../element_component/slider/simpleSlid/SimpleSlid'
 import MultiSlid from '../element_component/slider/multiSlid/MultiSlid';
 import Categrie from '../element_component/Categorie/Categorie'
-import women2 from '../image/women2.jpg'
-import women1 from '../image/women1.jpg'
-import wo6 from '../image/wo6.jpg'
-import wo5 from '../image/wo5.jpg'
-import wo2 from '../image/wo2.jpg'
+import women1 from '../image/hero1.jpg'
+import wo6 from '../image/hero2.jpg'
+import wo5 from '../image/hero3.jpg'
+import wo2 from '../image/hero5.jpg'
+
+import { useEffect } from 'react';
+import {useDispatch, useSelector } from "react-redux";
+import { getProducts } from '../../redux/shopping/shopping-action'
+
 
 
 const Femme = () => {
@@ -31,12 +35,20 @@ const Femme = () => {
             categ: 'Bobe',
             icon: 'https://media.istockphoto.com/vectors/dress-icon-vector-id507081676?b=1&k=6&m=507081676&s=612x612&w=0&h=bvMq50doXQbStWYHA_opPLFB0Ufj1i-YhTJaQhJsuqY='
         }
-    ]
+    ];
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+      dispatch(getProducts('femme'))
+    }, [dispatch])
+    
+      const products = useSelector((state) => state.shop.products);
 
     return (
         <>
             <HeroSection 
                 image={women1}
+                vedio={"/videos/vid4.mp4"}
                 mTitle='Shop jewellery handmade in Sydney' 
                 title='vaconcy mode'
                 position='left'
@@ -48,12 +60,13 @@ const Femme = () => {
                 image3={wo2}
             />
             <HeroSection
-                image={women2}
+                // image={women2}
+                vedio={"/videos/vid4.mp4"}
                 mTitle='Shop jewellery handmade in Sydney' 
                 title='vaconcy mode'
                 position=''
             />
-            <MultiSlid/>
+            <MultiSlid products={products}/>
         </>
     )  
 }

@@ -9,8 +9,7 @@ const userSchima = mongoose.Schema({
         required: [true, "please tell us your name"]
     },
     lastName: {
-        type: String,
-        required: [true, "please tell us your name"]
+        type: String
     },
     email: {
         type: String,
@@ -24,7 +23,9 @@ const userSchima = mongoose.Schema({
         enum: ['user', 'guide', 'lead-guide', 'admin'],
         default: 'user'
     },
-    photo:String,
+    photo:{
+        type: String
+    },  
     active: {
         type: Boolean,
         default: true,

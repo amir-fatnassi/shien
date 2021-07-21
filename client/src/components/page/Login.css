@@ -57,6 +57,16 @@
     outline: none;
 }
 
+.input-box-sign-togel {
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px 0;
+    width: 100px;
+    border: 1px solid #999;
+    outline: none;
+    background: #00EB96;
+}
+
 .input-button {
     color: #fff;
     border-radius: 20px;
@@ -83,4 +93,9 @@ hr {
 .log-icon {
     width: 70px;
     margin-top: -50px;
+}
+.FormGroup {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #999;
 }

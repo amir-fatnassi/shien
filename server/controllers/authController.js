@@ -174,8 +174,8 @@ exports.UpdateCurentUser = CatchAsync(async(req, res, next) => {
         return next( new AppError('Your current password is wrong', 401))
     }
 
-    user.password = req.body.newPasswor
-    user.confirmPassword = req.body.confirmNewPassword
+    user.password = req.body.newPassword
+    user.confirmPassword = req.body.confirmNewPassword   
     await user.save()
 
     CreateSendToken(user, 200, res)

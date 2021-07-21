@@ -8,17 +8,18 @@ import {
 } from "../../redux/shopping/shopping-action";
 
 const Admin = ({ location }) => {
-  
   const {user }= useSelector((state) => state.User)
   const { Prod } = location;
   const dispatch = useDispatch();
   const history = useHistory();
+  const [hommePath, setHommePath] = useState(true) 
 
-  const [name, setName] = useState(`${Prod ? Prod.name : ""}`);
-  const [taill, setTaill] = useState(`${Prod ? Prod.taill : ""}`);
-  const [price, setPrice] = useState(`${Prod ? Prod.name : 0}`);
-  const [color, setColor] = useState(`${Prod ? Prod.color : ""}`);
+  const [name, setName] = useState(`${Prod?.product ? Prod?.product.name : ""}`);
+  const [taill, setTaill] = useState(`${Prod?.product ? Prod?.product.taill : ""}`);
+  const [price, setPrice] = useState(`${Prod?.product ? Prod?.product.name : 0}`);
+  const [color, setColor] = useState(`${Prod?.product ? Prod?.product.color : ""}`);
   const [photo, setPhoto] = useState();
+  const [images, setImages] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,12 +29,16 @@ const Admin = ({ location }) => {
     product.append("taill", taill);
     product.append("color", color);
     product.append("photo", photo);
-    {Prod && product.append("_id", Prod._id)}
 
-    {
-      Prod
-        ? dispatch(UpdateProduct(Prod._id, product, history))
-        : dispatch(AddProduct(product, history));
+    for (let i = 0 ; i < images.length ; i++) {
+      product.append("images", images[i]);
+    }
+
+    if(Prod?.product){
+      dispatch(UpdateProduct(Prod?.product._id, product, history, Prod.path))
+    }else {
+      const path = hommePath ? 'femme' : 'homme'
+      dispatch(AddProduct(product, history, path));
     }
   };
 
@@ -53,7 +58,7 @@ const Admin = ({ location }) => {
               name="name"
               onChange={(e) => setName(e.target.value)}
               className="input-box-sign"
-              placeholder={Prod ? Prod.name : "Name"}
+              placeholder={Prod?.product ? Prod?.product.name : "Name"}
             />
           </div>
           <div className="admin-chon">
@@ -63,7 +68,7 @@ const Admin = ({ location }) => {
               name="price"
               onChange={(e) => setPrice(e.target.value)}
               className="input-box-sign"
-              placeholder={Prod ? Prod.price : "Price"}
+              placeholder={Prod?.product ? Prod?.product.price : "Price"}
             />
           </div>
           <div className="admin-chon">
@@ -73,7 +78,7 @@ const Admin = ({ location }) => {
               name="taill"
               onChange={(e) => setTaill(e.target.value)}
               className="input-box-sign"
-              placeholder={Prod ? Prod.taill : "Taill"}
+              placeholder={Prod?.product ? Prod?.product.taill : "Taill"}
             />
           </div>
           <div className="admin-chon">
@@ -83,7 +88,7 @@ const Admin = ({ location }) => {
               name="color"
               onChange={(e) => setColor(e.target.value)}
               className="input-box-sign"
-              placeholder={Prod ? Prod.color : "Color"}
+              placeholder={Prod?.product ? Prod?.product.color : "Color"}
             />
           </div>
           <div className="admin-chon">
@@ -95,18 +100,36 @@ const Admin = ({ location }) => {
               onChange={(e) => setPhoto(e.target.files[0])}
             />
           </div>
-          {Prod ? (
+          {/* tesssssssssssssssssssssssssssssst */}
+          <div className="admin-chon">
+            <label htmlFor="image"> Product Images </label>
+            <input
+              type="file"
+              name="images"
+              multiple
+              className="input-box-sign"
+              onChange={(e) => setImages(e.target.files)}
+            />
+          </div>
+          {/* tesssssssssssssssssssssssssssssst */}
+          {Prod?.product ? (
             <input
               type="submit"
               value="Update Product"
               className="input-box-sign"
             />
           ) : (
-            <input
+            <div>
+              <input
               type="submit"
               value="Add Product"
               className="input-box-sign"
-            />
+              />
+              <button onClick={()=> setHommePath(!hommePath)}>
+                { hommePath ? 'Add To Homme' : "Add To Femme" }
+              </button>
+            </div>
+            
           )}
         </form>
       ) : (

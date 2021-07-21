@@ -1,82 +1,114 @@
 .search-body-cont {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .search-body-container {
-    margin: auto;
-    padding: 0;
-    width: 95%;
-    height: 100%;
-    /* background-color: #e9f5f9; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  margin: auto;
+  padding: 0;
+  width: 95%;
+  height: 100%;
+  /* background-color: #e9f5f9; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .searchBar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  margin-top: 20px;
 }
 .search2 {
-    width: 60%;
-    margin: 5px 20px;
-    text-align: center;
+  width: 60%;
+  margin: 5px 20px;
+  text-align: center;
 }
 .search2 > span {
-    display: block;
-    font-size: 20px;
+  display: block;
+  font-size: 20px;
 }
 .search1 {
-    display: flex;
-    align-items: center;
-    width: 60%;
-    margin: 5px 20px;
-    background:#a8afbd ;
-    height: 40px;
-    border-radius: 30px;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: 5px 20px;
+  background: #a8afbd;
+  height: 40px;
+  border-radius: 30px;
+  padding: 20px;
 }
 .search1 > i {
-    font-size: 20px;
-    color:#00fd0a ;
+  font-size: 20px;
+  color: #00fd0a;
 }
 .search1 > input {
-    flex: 1;
-    height: 30px;
-    margin-left: 10px;
-    outline: none;
-    border: none;
-    font-size: 18px;
-    background-color: #a8afbd;
+  flex: 1;
+  height: 30px;
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background-color: #a8afbd;
 }
 
 .slider {
-    -webkit-appearance: none;
-    width: 80%;
-    height: 15px;
-    background: #a8afbd;
-    outline: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0, 0, 0,1);
-    margin: auto;
-    margin-top: 10px;
+  -webkit-appearance: none;
+  width: 80%;
+  height: 15px;
+  background: #a8afbd;
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  margin: auto;
+  margin-top: 10px;
 }
 
 .slider::-webkit-slider-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 15px;
-height: 15px;
-border-radius: 50%;
-background: #00fd0a;
-cursor: pointer;
-border: 4px solid #333;
-box-shadow: -407px 0 0 400px #00fd0a;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00fd0a;
+  cursor: pointer;
+  border: 4px solid #333;
+  box-shadow: -407px 0 0 400px #00fd0a;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 8px;
+  margin: 6px;
+  border-radius: 5px;
+  border: 1px solid #2b2eff;
+  color: #2b2eff;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationDisabled a {
+  color: grey;
 }

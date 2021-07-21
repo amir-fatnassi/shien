@@ -4,9 +4,13 @@ import MultiSlid from '../element_component/slider/multiSlid/MultiSlid';
 import Categrie from '../element_component/Categorie/Categorie'
 import man2 from '../image/man2.jpg'
 import man3 from '../image/man3.jpg'
-import ma1 from '../image/man4.jpg'
+import ma1 from '../image/hero4.gif'
 import ma2 from '../image/ma2.jpg'
-import ma3 from '../image/ma3.jpg'
+import ma3 from '../image/hero6.gif'
+
+import { useEffect } from 'react';
+import {useDispatch, useSelector } from "react-redux";
+import { getProducts } from '../../redux/shopping/shopping-action'
 
 const Homme = () => {
     
@@ -32,7 +36,14 @@ const Homme = () => {
             categ: 'Bobe',
             icon: 'https://media.istockphoto.com/vectors/dress-icon-vector-id507081676?b=1&k=6&m=507081676&s=612x612&w=0&h=bvMq50doXQbStWYHA_opPLFB0Ufj1i-YhTJaQhJsuqY='
         }
-    ]
+    ];
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+      dispatch(getProducts('homme'))
+    }, [dispatch])
+    
+      const products = useSelector((state) => state.shop.products);
 
     return (
         <>
@@ -53,7 +64,7 @@ const Homme = () => {
                 mTitle='Shop jewellery handmade in Sydney' 
                 title='vaconcy mode'
             />
-            <MultiSlid/>
+            <MultiSlid products={products}/>
         </>
     )
 }

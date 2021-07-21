@@ -37,6 +37,7 @@ li, .nav-link {
 
 .nav-icon {
     justify-content: flex-end;
+    align-items: center;
 }
 .nav-menu li{
     display: inline-block;

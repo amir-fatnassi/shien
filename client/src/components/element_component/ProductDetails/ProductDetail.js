@@ -2,12 +2,13 @@ import React from 'react'
 import './ProductDetail.css';
 import Button from '../Button/Button'
 
-const ProductDetail = () => {
+const ProductDetail = ({prod}) => {
+    console.log(prod)
     return (
         <div className='product-detail-component'>
             <div className="product-detail-head">
-                <h3 className="product-name">product name</h3>
-                <h2 className="product-price">2,99€</h2>
+                <h6 className="product-name">{prod?.name}</h6>
+                <h5 className="product-price">{prod?.price}</h5>
             </div>
             <div className="product-taille">
                 <h2 className="taille">Taille</h2>

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const FemmeProductSchema = mongoose.Schema({
     name:{
         type: String,
         required: [true, 'product muste have a name']
@@ -18,7 +18,7 @@ const productSchema = mongoose.Schema({
         type: String,
         // required: [true, 'please add the image product']
     },
-    image: [String],
+    images: [String],
     color: String
 
 
@@ -29,5 +29,5 @@ const productSchema = mongoose.Schema({
     // }
 })
 
-const Hotel = mongoose.model('Product', productSchema)
-module.exports = Hotel
+const FemmeProduct = mongoose.model('Product', FemmeProductSchema)
+module.exports = FemmeProduct

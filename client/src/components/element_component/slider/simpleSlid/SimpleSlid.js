@@ -19,9 +19,10 @@ const SimpleSlid = ( { image1, image2, image3 } ) => {
                     <img src={image1} alt="" className='simple-slid-img'/>
                 </div>
                 <div>
-                <img src={image2} alt="" className='simple-slid-img'/>
-                </div><div>
-                <img src={image3} alt="" className='simple-slid-img'/>
+                    <img src={image2} alt="" className='simple-slid-img'/>
+                </div>
+                <div>
+                    <img src={image3} alt="" className='simple-slid-img'/>
                 </div>
             </Slider>
         </div>

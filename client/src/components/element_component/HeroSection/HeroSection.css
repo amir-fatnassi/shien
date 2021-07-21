@@ -9,10 +9,17 @@
 .hero-container-1 {
     width: 90%;
     height: 400px;
-    margin: 0px auto;
+    margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* position: fixed; */
+    z-index: -1;
 }
 .hero-img {
     width: 100%;
@@ -22,7 +29,7 @@
 .hero-banner {
     position: absolute;
     width: 40%;
-    height: 400px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;

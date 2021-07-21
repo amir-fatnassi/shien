@@ -13,7 +13,13 @@ router.post('/forgetpassword',authController.forgetPassword )
 router.patch('/resetpassword/:token',authController.ResetPassword )
 router.patch('/updatcurentuser',authController.Protect, authController.UpdateCurentUser )
 
-router.patch('/updateme', authController.Protect, userController.updateMe);
+router.patch(
+    '/updateme', 
+    authController.Protect,
+    userController.uploadUserPhoto,
+    userController.resizeUserPhoto, 
+    userController.updateMe
+);
 router.delete('/deletme', authController.Protect, userController.deletMe);
 
 

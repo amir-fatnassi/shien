@@ -6,12 +6,14 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const globalErrorHandler = require('./controllers/errorController')
-const productRouter = require('./routes/productRoutes');
+const FemmeProductRouter = require('./routes/FemmeProductRoutes');
+const HommeProductRouter = require('./routes/HommeProductRoutes');
 const userRouter = require('./routes/userRoutes');
+const PaymentRouter = require('./routes/PaymentRoutes');
 
 console.log(process.env.NODE_ENV )
 
-const app = express();
+const app = express();   
 
 app.use(helmet())
 
@@ -32,13 +34,15 @@ app.use(cookieParser());
 //     console.log(req.cookies.jwt);       
 //     next()
 // })
+app.use(cors())
 
 app.use(mongoSanitize());
 
-app.use('/api/v1/products', productRouter); 
-app.use('/api/v1/users', userRouter);  
+app.use('/api/v1/products/femme', FemmeProductRouter); 
+app.use('/api/v1/products/homme', HommeProductRouter); 
+app.use('/api/v1/booking', PaymentRouter); 
+app.use('/api/v1/users', userRouter);               
 
-app.use(cors())
 
 app.use(globalErrorHandler)
 

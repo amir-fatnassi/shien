@@ -1,11 +1,16 @@
 .card-item-container {
     margin: 0%;
     padding: 0%;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+Link, a  {
+    height: 100%;
+    text-decoration: none;
 }
 .card-item-img {
     margin: 0%;
@@ -21,9 +26,15 @@
     object-fit: cover;
 }
 .card-item-info {
-    text-align: center;
-    padding-bottom: 10px;
-    background-color: #e6ddd7;
+    padding: 10px; 
+}
+.card-item-info > p {
+    font-size: 12px;
+    padding-bottom: 10px; 
+    color: #767676;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card-item-title a {

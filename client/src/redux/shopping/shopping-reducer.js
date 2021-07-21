@@ -2,12 +2,20 @@ import * as actionType from './shopping-type';
 
 const initialState = {
     products: [],
+    productHomme: [],
+    productFemme: [],
     cart: [],
     currentItem: null
 }
 
 const shopReducer = (state = initialState, action) => {
     switch(action.type){
+        case actionType.GET_PRODUCTSHF:
+            return{
+                ...state,
+                productHomme: action.payload.homme,
+                productFemme: action.payload.femme
+            }
         case actionType.GET_PRODUCTS:
             return{
                 ...state,
@@ -19,7 +27,7 @@ const shopReducer = (state = initialState, action) => {
                 products: state.products.filter((el) => el._id !== action.payload )
             }
         case actionType.ADD_NEW_PRODUCT:
-        case actionType.UPDATE_PRODUCT:
+        case actionType.UPDATE_PRODUCT:  
             return{
                 ...state
             }
@@ -63,6 +71,16 @@ const shopReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentItem: action.payload
+            }
+        case actionType.CLEAR_PRODUCT:
+            return{
+                ...state,
+                products: []
+            }
+        case actionType.CLEAR_CARTS:
+            return{
+                ...state,
+                cart: []
             }
         default:
             return state 
